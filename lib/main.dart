@@ -1,4 +1,4 @@
-import 'package:final_year_project/pages/home_page/home_page.dart';
+import 'package:final_year_project/components/bottom_navigation_bar/my_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         textTheme: GoogleFonts.latoTextTheme(),
       ),
-      home: HomePage(),
+      home: MyBottomNavigationBar(),
     );
   }
 }

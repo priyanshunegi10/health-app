@@ -1,3 +1,4 @@
+import 'package:final_year_project/pages/home_page/widgets/appointenment_card.dart';
 import 'package:final_year_project/pages/home_page/widgets/services_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -9,7 +10,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(
@@ -20,7 +21,7 @@ class HomePage extends StatelessWidget {
                           radius: 24,
                           child: Image.asset("assets/icons/greeting.png"),
                         ),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -158,51 +159,63 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 20),
-                Column(
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          height: 180,
-                          width: MediaQuery.of(context).size.width * 0.7,
-                          decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 40, 219, 247),
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Row(
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Column(
+                    children: [
+                      Row(
                             children: [
-                              Container(
-                                margin: EdgeInsets.all(20),
-                                height: double.infinity,
-                                width: 80,
-                                decoration: BoxDecoration(
-                                  color: Colors.blue.shade500,
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    "12\nTue",
-                                    style: TextStyle(
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
+                              AppointenmentCard(
+                                outercontaniner: Color(0xff22BED5),
+                                innercontaniner: Color(0xff0294AD),
+                                date: '12\ntue',
+                                time: '9:30 AM',
+                                drName: 'Dr. Mim Akhter',
+                                illness: 'Depression',
                               ),
-                              Column(children: [Text("9:30 AM")]),
+                              AppointenmentCard(
+                                outercontaniner: Color(0xff22BED5),
+                                innercontaniner: Color(0xff0294AD),
+                                date: '12\ntue',
+                                time: '9:30 AM',
+                                drName: 'Dr. Mim Akhter',
+                                illness: 'Depression',
+                              ),
+                              AppointenmentCard(
+                                outercontaniner: Color(0xff22BED5),
+                                innercontaniner: Color(0xff0294AD),
+                                date: '12\ntue',
+                                time: '9:30 AM',
+                                drName: 'Dr. Mim Akhter',
+                                illness: 'Depression',
+                              ),
+                              AppointenmentCard(
+                                outercontaniner: Color(0xff22BED5),
+                                innercontaniner: Color(0xff0294AD),
+                                date: '12\ntue',
+                                time: '9:30 AM',
+                                drName: 'Dr. Mim Akhter',
+                                illness: 'Depression',
+                              ),
                             ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                          )
+                          .animate(delay: 900.ms)
+                          .slideY(
+                            begin: 1,
+                            end: 0,
+                            duration: 600.ms,
+                            curve: Curves.easeOut,
+                          ) // From Bottom
+                          .fade(),
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
         ),
       ),
+      
     );
   }
 }

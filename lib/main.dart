@@ -1,4 +1,5 @@
 import 'package:final_year_project/components/bottom_navigation_bar/my_bottom_navigation_bar.dart';
+import 'package:final_year_project/pages/doctors/doctors_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';

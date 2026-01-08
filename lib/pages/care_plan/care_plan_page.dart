@@ -1,5 +1,5 @@
 import 'package:final_year_project/pages/care_plan/widgets/my_cards.dart';
-import 'package:final_year_project/pages/care_plan/widgets/pdf.dart';
+import 'package:final_year_project/pages/care_plan/widgets/pdf_card.dart';
 import 'package:flutter/material.dart';
 
 class CarePlanPage extends StatelessWidget {
@@ -66,14 +66,14 @@ class CarePlanPage extends StatelessWidget {
                 SizedBox(height: 10),
                 Column(
                   children: [
-                    Pdf(
+                    PdfCard(
                       outerContainer: Colors.blue.shade100,
                       imagePath: "assets/icons/dark_page.png",
                       imageColor: Colors.blue.shade600,
                       reportName: "Genral health",
                       no: "8 files",
                     ),
-                    Pdf(
+                    PdfCard(
                       outerContainer: Colors.blue.shade100,
                       imagePath: "assets/icons/dark_page.png",
                       imageColor: Colors.blue.shade600,

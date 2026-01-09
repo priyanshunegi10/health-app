@@ -2,7 +2,6 @@ import 'package:final_year_project/components/bottom_navigation_bar/my_bottom_na
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 void main() {
   runApp(MyApp());
 }

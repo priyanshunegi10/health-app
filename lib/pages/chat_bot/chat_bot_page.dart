@@ -87,7 +87,6 @@ class _ChatBotState extends State<ChatBot> {
         });
       }
     } catch (e) {
-      // Handle errors (like no internet)
       print("Error: $e");
       setState(() {
         _messages.insert(

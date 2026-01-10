@@ -9,35 +9,51 @@ class MorePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsetsGeometry.all(15),
-          child: Column(
-            children: [
-              Text(
-                "Summary",
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 20),
+          padding: EdgeInsetsGeometry.only(left: 15, right: 15, top: 15),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Text(
+                  "Summary",
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 20),
 
-              SleepCard(
-                containerColor: Colors.blue.shade100,
-                imagePath: "assets/icons/bed.png",
-                containerName: "Sleep",
-                date: "Yesterday",
-                text: "Time in bed",
-                hours: "4",
-                hoursText: "hr",
-                min: "10",
-                minText: "min",
-                secondImagePath: "assets/icons/statistics.png",
-              ),
-              StepsCard(
-                containerColor: Colors.red.shade100,
-                imagePath: 'assets/icons/footstep.png',
-                containerName: 'Steps',
-                noSteps: '2000',
-                steps: 'Steps',
-              ),
-            ],
+                SleepCard(
+                  containerColor: Colors.blue.shade100,
+                  imagePath: "assets/icons/bed.png",
+                  containerName: "Sleep",
+                  date: "Yesterday",
+                  text: "Time in bed",
+                  hours: "4",
+                  hoursText: "hr",
+                  min: "10",
+                  minText: "min",
+                  secondImagePath: "assets/icons/statistics.png",
+                ),
+                StepsCard(
+                  containerColor: Colors.red.shade100,
+                  imagePath: 'assets/icons/footstep.png',
+                  containerName: 'Steps',
+                  noSteps: '2000',
+                  steps: 'Steps',
+                ),
+                StepsCard(
+                  imagePath: "assets/icons/heart.png",
+                  containerName: "Heart rate",
+                  noSteps: "90",
+                  steps: "heart ate",
+                  containerColor: Colors.amber.shade100,
+                ),
+                StepsCard(
+                  imagePath: "assets/icons/iphone.png",
+                  containerName: "Screen time",
+                  noSteps: "10",
+                  steps: "hours",
+                  containerColor: Colors.deepOrange.shade100,
+                ),
+              ],
+            ),
           ),
         ),
       ),

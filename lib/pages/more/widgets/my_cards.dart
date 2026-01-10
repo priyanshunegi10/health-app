@@ -108,9 +108,9 @@ class StepsCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              Image.asset("assets/icons/footstep.png", height: 40),
+              Image.asset(imagePath, height: 40),
               SizedBox(width: 8),
-              Text("Steps", style: TextStyle(fontSize: 20)),
+              Text(containerName, style: TextStyle(fontSize: 20)),
               Spacer(),
               Text("yestresday", style: TextStyle(fontSize: 18)),
               Icon(Icons.arrow_forward_ios_rounded),
@@ -120,11 +120,11 @@ class StepsCard extends StatelessWidget {
           Row(
             children: [
               Text(
-                "283",
+                noSteps,
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
               SizedBox(width: 2),
-              Text("steps"),
+              Text(steps),
 
               Spacer(),
               Image.asset("assets/icons/statistics.png", height: 50),

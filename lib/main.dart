@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.latoTextTheme(),
       ),
       home: MyBottomNavigationBar(),
+      
     );
   }
 }

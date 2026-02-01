@@ -1,2 +1,0 @@
-const openAIAPIKey =
-    "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";

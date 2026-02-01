@@ -207,6 +207,7 @@ class HomePage extends StatelessWidget {
                             curve: Curves.easeOut,
                           ) // From Bottom
                           .fade(),
+                      SizedBox(height: 20),
                     ],
                   ),
                 ),

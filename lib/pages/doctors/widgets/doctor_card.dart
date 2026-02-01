@@ -25,7 +25,7 @@ class DoctorCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(bottom: 20),
       padding: EdgeInsets.all(15),
-      height: MediaQuery.of(context).size.height * 0.3,
+      // height: MediaQuery.of(context).size.height * 0.3,
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white10,

@@ -1,4 +1,5 @@
 import 'package:final_year_project/firebase_options.dart';
+import 'package:final_year_project/pages/authentication/login_page.dart';
 import 'package:final_year_project/pages/authentication/sign_up_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         textTheme: GoogleFonts.latoTextTheme(),
       ),
-      home: SignUpPage(),
+      home: LoginPage(),
     );
   }
 }

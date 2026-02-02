@@ -1,4 +1,5 @@
 import 'package:final_year_project/components/button/custom_button.dart';
+import 'package:final_year_project/pages/authentication/login_page.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatelessWidget {
@@ -6,7 +7,10 @@ class SignUpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController emailController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
         child: Column(
@@ -29,6 +33,7 @@ class SignUpPage extends StatelessWidget {
             ),
             SizedBox(height: 20),
             TextFormField(
+              controller: emailController,
               decoration: InputDecoration(
                 labelText: "Entre your email",
                 prefixIcon: Icon(Icons.email),
@@ -39,6 +44,8 @@ class SignUpPage extends StatelessWidget {
             ),
             SizedBox(height: 20),
             TextFormField(
+              controller: passwordController,
+              obscureText: true,
               decoration: InputDecoration(
                 labelText: "Entre your password",
                 prefixIcon: Icon(Icons.lock),
@@ -58,7 +65,16 @@ class SignUpPage extends StatelessWidget {
                   style: TextStyle(color: Colors.black, fontSize: 16),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return LoginPage();
+                        },
+                      ),
+                    );
+                  },
                   child: Text(
                     "Sign in",
                     style: TextStyle(
@@ -77,9 +93,8 @@ class SignUpPage extends StatelessWidget {
                 width: double.infinity,
                 height: 50,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Color(0xfff1f3ff),
                   borderRadius: BorderRadius.circular(30),
-                  border: Border.all(color: Colors.grey),
                 ),
                 child: Center(
                   child: Row(

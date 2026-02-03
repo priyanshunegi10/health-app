@@ -4,11 +4,13 @@ class DetailsContainer extends StatelessWidget {
   final IconData icon;
   final String? title;
   final String value;
+  final VoidCallback? ontap;
   const DetailsContainer({
     super.key,
     required this.icon,
     this.title,
     required this.value,
+    this.ontap,
   });
 
   @override
@@ -22,7 +24,9 @@ class DetailsContainer extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Icon(icon, size: 42, color: Colors.blue),
+          GestureDetector(
+            onTap: ontap,
+            child: Icon(icon, size: 42, color: Colors.blue)),
           SizedBox(width: 10),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,

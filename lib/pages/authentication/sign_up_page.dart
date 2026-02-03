@@ -40,8 +40,6 @@ class _SignUpPageState extends State<SignUpPage> {
       passwordController.text.trim(),
     );
 
-    setState(() => isLoading = false);
-
     // 3. Result Handling
     if (error == null) {
       // SUCCESS

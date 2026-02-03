@@ -1,7 +1,9 @@
 import 'package:final_year_project/pages/home_page/widgets/appointenment_card.dart';
 import 'package:final_year_project/pages/home_page/widgets/services_card.dart';
+import 'package:final_year_project/pages/profile_page/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -39,9 +41,19 @@ class HomePage extends StatelessWidget {
                           ],
                         ),
                         Spacer(),
-                        CircleAvatar(
-                          radius: 30,
-                          child: Image.asset("assets/icons/user.png"),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ProfilePage(),
+                              ),
+                            );
+                          },
+                          child: CircleAvatar(
+                            radius: 30,
+                            child: Image.asset("assets/icons/user.png"),
+                          ),
                         ),
                       ],
                     )

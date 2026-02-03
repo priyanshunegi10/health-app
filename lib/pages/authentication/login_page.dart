@@ -1,14 +1,60 @@
+import 'package:final_year_project/components/bottom_navigation_bar/my_bottom_navigation_bar.dart';
 import 'package:final_year_project/components/button/custom_button.dart';
 import 'package:final_year_project/pages/authentication/sign_up_page.dart';
+import 'package:final_year_project/pages/home_page/home_page.dart';
+import 'package:final_year_project/services/autentication/firebase_auth_methods.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  bool isLoading = false;
+
+  void handlelogin() async {
+    if (emailController.text.isEmpty || passwordController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Email and password are required")),
+      );
+    }
+
+    setState(() => isLoading = true);
+
+    String? error = await FirebaseAuthMethods().logIn(
+      emailController.text.trim(),
+      passwordController.text.trim(),
+    );
+
+    setState(() => isLoading = false);
+
+    if (error == null) {
+      // Success -> Home Page (Aur piche wapas na aa sake isliye pushReplacement)
+      if (mounted) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MyBottomNavigationBar(),
+          ), // Apna Home Page yaha daalo
+        );
+      }
+    } else {
+      // Error
+      if (mounted) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(error)));
+      }
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    TextEditingController emailController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -55,7 +101,14 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
-            CustomButton(text: "Login", ontap: () {}),
+            isLoading
+                ? CircularProgressIndicator()
+                : CustomButton(
+                    text: "Login",
+                    ontap: () {
+                      handlelogin();
+                    },
+                  ),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

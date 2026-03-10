@@ -22,7 +22,7 @@ class AppointenmentCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(right: 10),
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.only(left: 15, right: 20, bottom: 12, top: 12),
       height: 170,
       width: MediaQuery.of(context).size.width * 0.8 + 10,
       decoration: BoxDecoration(
@@ -54,20 +54,22 @@ class AppointenmentCard extends StatelessWidget {
           Expanded(
             child: Row(
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(time, style: TextStyle(color: Colors.white)),
-                    Text(
-                      drName,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
+                Flexible(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(time, style: TextStyle(color: Colors.white)),
+                      Text(
+                        drName,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    Text(illness, style: TextStyle(color: Colors.white)),
-                  ],
+                      Text(illness, style: TextStyle(color: Colors.white)),
+                    ],
+                  ),
                 ),
               ],
             ),

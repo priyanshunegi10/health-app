@@ -1,7 +1,6 @@
 import 'package:final_year_project/components/bottom_navigation_bar/my_bottom_navigation_bar.dart';
 import 'package:final_year_project/components/button/custom_button.dart';
 import 'package:final_year_project/pages/authentication/login_page.dart';
-import 'package:final_year_project/pages/home_page/home_page.dart';
 import 'package:final_year_project/services/autentication/firebase_auth_methods.dart';
 import 'package:flutter/material.dart';
 

@@ -1,5 +1,6 @@
 import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 
 class ChatBot extends StatefulWidget {
@@ -13,7 +14,9 @@ class _ChatBotState extends State<ChatBot> {
   late final GenerativeModel _model;
   late final ChatSession _chatSession;
 
-  final String _apiKey = "AIzaSyB05Mo6tGyyGIHCnCHh7YsH3KmKSqAtvyQ";
+  final String _apiKey = dotenv.env['GEMINI_API_KEY'] ?? "KEY_NOT_FOUND";
+
+  bool _isTyping = false;
 
   final ChatUser _currentUser = ChatUser(
     id: "1",
@@ -34,7 +37,7 @@ class _ChatBotState extends State<ChatBot> {
     super.initState();
 
     _model = GenerativeModel(
-      model: 'gemini-2.5-flash-lite',
+      model: 'gemini-2.5-flash',
       apiKey: _apiKey,
       systemInstruction: Content.system(
         "You are a helpful medical assistant for a health app. "
@@ -50,7 +53,16 @@ class _ChatBotState extends State<ChatBot> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Health AI")),
+      backgroundColor: Colors.grey.shade50,
+      appBar: AppBar(
+        title: const Text(
+          "Health AI Assistant",
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+        ),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.black),
+      ),
       body: DashChat(
         messageOptions: const MessageOptions(
           currentUserContainerColor: Colors.black,
@@ -58,6 +70,8 @@ class _ChatBotState extends State<ChatBot> {
           textColor: Colors.white,
         ),
         currentUser: _currentUser,
+
+        typingUsers: _isTyping ? [_geminiUser] : [],
         onSend: (ChatMessage m) {
           getChatResponse(m);
         },
@@ -69,6 +83,7 @@ class _ChatBotState extends State<ChatBot> {
   Future<void> getChatResponse(ChatMessage m) async {
     setState(() {
       _messages.insert(0, m);
+      _isTyping = true;
     });
 
     try {
@@ -84,6 +99,7 @@ class _ChatBotState extends State<ChatBot> {
               text: response.text!,
             ),
           );
+          _isTyping = false;
         });
       }
     } catch (e) {
@@ -94,9 +110,11 @@ class _ChatBotState extends State<ChatBot> {
           ChatMessage(
             user: _geminiUser,
             createdAt: DateTime.now(),
-            text: "Error: Unable to connect to Gemini. Check your internet.",
+            text:
+                "Error: Unable to connect to servers. Please check your internet connection.",
           ),
         );
+        _isTyping = false;
       });
     }
   }

@@ -36,7 +36,7 @@ Built not just as a basic CRUD app, but engineered to handle real-world constrai
 **1. Clone the project:**
 
 ```bash
-   git clone [https://github.com/priyanshunegi10/smart-health-advisory.git](https://github.com/priyanshunegi10/smart-health-advisory.git)
+   git clone [https://github.com/priyanshunegi10/smart-health-advisory.git]
    cd smart-health-advisory
 ```
 **2. Install dependencies:**
